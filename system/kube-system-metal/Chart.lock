@@ -38,9 +38,9 @@ dependencies:
 - name: digicert-issuer
   repository: https://charts.eu-de-2.cloud.sap
   version: 1.0.34
-- name: nginx-ingress
-  repository: https://charts.helm.sh/stable
-  version: 1.35.0
+- name: ingress-nginx
+  repository: https://kubernetes.github.io/ingress-nginx
+  version: 3.36.0
 - name: nginx-ingress
   repository: https://charts.helm.sh/stable
   version: 1.35.0
@@ -77,5 +77,5 @@ dependencies:
 - name: aws-ecr-creds-helper
   repository: https://charts.eu-de-2.cloud.sap
   version: 1.0.0
-digest: sha256:248aec1e169e59af5c5818e3265e44e9a1ac42ddb2f58fd7088b1ce5e68dea02
-generated: "2021-09-23T13:19:53.994974+03:00"
+digest: sha256:2924eb95bfc5b78c54ded69238e83e674a46ca928b7e92697f8ee35352563103
+generated: "2021-10-06T11:32:04.225464+02:00"
