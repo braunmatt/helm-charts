@@ -92,7 +92,7 @@ snmp_exporter:
     enabled: false
     version: DEFINED-IN-REGION-SECRECTS
     community: DEFINED-IN-REGION-SECRECTS
-  pxdlrouternxos:
+  px:
     enabled: false
     version: DEFINED-IN-REGION-SECRECTS
     community: DEFINED-IN-REGION-SECRECTS

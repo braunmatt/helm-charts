@@ -17,8 +17,8 @@ spec:
 {{- end }}
 {{- end }}
 {{- $values := .Values -}}
-{{- if $values.snmp_exporter.pxdlrouternxos.alerts.enabled }}
-{{- range $path, $bytes := .Files.Glob "pxdl.alerts/*.alerts" }}
+{{- if $values.snmp_exporter.px_snmp.alerts.enabled }}
+{{- range $path, $bytes := .Files.Glob "px.alerts/*.alerts" }}
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
