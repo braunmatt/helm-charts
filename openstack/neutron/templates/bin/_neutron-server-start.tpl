@@ -35,7 +35,11 @@ function process_config {
     {{- if .Values.bgp_vpn.enabled }}
     cp /neutron-etc/networking-bgpvpn.conf /etc/neutron/networking-bgpvpn.conf
     {{- end }}
-    
+
+    {{- if .Values.interconnection.enabled }}
+    cp /neutron-etc/networking-interconnection.conf /etc/neutron/networking-interconnection.conf
+    {{- end }}
+
     {{- if .Values.fwaas.enabled }}
     cp /neutron-etc/neutron-fwaas.ini /etc/neutron/neutron-fwaas.ini
     {{- end }}
@@ -43,7 +47,7 @@ function process_config {
 }
 
 function _start_application {
-    exec neutron-server --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2-conf.ini --config-file /etc/neutron/plugins/ml2/ml2-conf-aci.ini --config-file /etc/neutron/plugins/ml2/ml2-conf-manila.ini --config-file /etc/neutron/plugins/ml2/ml2-conf-arista.ini --config-file /etc/neutron/plugins/ml2/ml2-conf-asr1k.ini {{- if .Values.bgp_vpn.enabled }} --config-file /etc/neutron/networking-bgpvpn.conf{{- end }}{{- if .Values.fwaas.enabled }} --config-file /etc/neutron/neutron-fwaas.ini{{- end }}
+    exec neutron-server --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2-conf.ini --config-file /etc/neutron/plugins/ml2/ml2-conf-aci.ini --config-file /etc/neutron/plugins/ml2/ml2-conf-manila.ini --config-file /etc/neutron/plugins/ml2/ml2-conf-arista.ini --config-file /etc/neutron/plugins/ml2/ml2-conf-asr1k.ini {{- if .Values.bgp_vpn.enabled }} --config-file /etc/neutron/networking-bgpvpn.conf{{- end }}{{- if .Values.interconnection.enabled }} --config-file /etc/neutron/networking-interconnection.conf{{- end }}{{- if .Values.fwaas.enabled }} --config-file /etc/neutron/neutron-fwaas.ini{{- end }}
 }
 
 process_config
