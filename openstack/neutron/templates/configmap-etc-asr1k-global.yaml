@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: neutron-asr-global
+  labels:
+    system: openstack
+    type: configuration
+    component: neutron
+
+data:
+  asr1k-global.ini: |
+{{ include (print .Template.BasePath "/etc/_asr1k-global.ini.tpl") . | indent 4 }}

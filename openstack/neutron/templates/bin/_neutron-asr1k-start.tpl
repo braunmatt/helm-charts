@@ -13,16 +13,15 @@ function process_config {
     cp /neutron-etc/rootwrap.conf  /etc/neutron/rootwrap.conf
 
     cp /neutron-etc-asr1k/asr1k.conf /etc/neutron/asr1k.conf
+    cp /neutron-etc-asr1k-global/asr1k-global.ini /etc/neutron/asr1k-global.ini
 }
 
 
 
 function _start_application {
-    exec asr1k-l3-agent --config-file /etc/neutron/asr1k.conf --config-file /etc/neutron/neutron.conf
+    exec asr1k-l3-agent --config-file /etc/neutron/asr1k.conf --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/asr1k-global.ini
 }
 
 
 process_config
 start_application
-
-

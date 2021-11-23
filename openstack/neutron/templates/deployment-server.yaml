@@ -155,6 +155,10 @@ spec:
               name: neutron-etc-vendor
               subPath: ml2-conf-asr1k.ini
               readOnly: true
+            - mountPath: /etc/neutron/plugins/neutron-etc-asr1k-global.ini
+              name: neutron-etc-asr1k-global
+              subPath: neutron-etc-asr1k-global.ini
+              readOnly: true
             {{- if .Values.bgp_vpn.enabled }}
             - mountPath: /etc/neutron/networking-bgpvpn.conf
               name: neutron-etc
@@ -231,6 +235,9 @@ spec:
         - name: neutron-etc-region
           configMap:
             name: neutron-etc-region
+        - name: neutron-etc-asr1k-global
+          configMap:
+            name: neutron-etc-asr1k-global
 {{- if .Values.pod.debug.server }}
         - name: development
           persistentVolumeClaim:

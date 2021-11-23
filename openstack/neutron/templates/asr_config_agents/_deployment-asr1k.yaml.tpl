@@ -113,6 +113,8 @@ spec:
               name: neutron-etc-vendor
             - mountPath: /neutron-etc-asr1k
               name: neutron-etc-asr1k
+            - mountPath: /neutron-etc-asr1k-global
+              name: neutron-etc-asr1k-global
             - mountPath: /container.init
               name: container-init
           ports:
@@ -130,6 +132,9 @@ spec:
           configMap:
             name: neutron-bin-vendor
             defaultMode: 0755
+        - name:  neutron-etc-asr1k-global
+          configMap:
+            name: neutron-etc-asr1k-global
         - name:  neutron-etc-asr1k
           configMap:
             name: neutron-etc-asr1k-{{ $config_agent.name }}
