@@ -3,7 +3,18 @@
 function start_tempest_tests {
 
   echo -e "\n === PRE-CONFIG STEP  === \n"
-  
+  sudo pip3 install --upgrade 'cryptography>=3.0'
+  sudo pip3 install --upgrade 'cliff>=3.4.0'
+  sudo pip3 install --upgrade 'pyyaml>=5.4.1'
+  sudo pip3 install --upgrade 'jsonschema>=3.2.0'
+  sudo pip3 install --upgrade 'keystoneauth1>=4.3.1'
+  sudo pip3 install --upgrade 'openstacksdk>=0.56.0'
+  sudo pip3 install --upgrade 'dogpile.cache>=0.8.0'
+  sudo pip3 install --upgrade 'oslo.i18n>=5.0.1'
+  sudo pip3 install --upgrade 'oslo.utils>=4.8.0'
+  sudo pip3 install --upgrade 'pbr>=5.5.0'
+  sudo pip3 install --upgrade 'requests>=2.25.1'
+  sudo pip3 install --upgrade 'python-dateutil>=2.8.1'
   export OS_USERNAME={{ default "neutron-tempestadmin1" (index .Values (print .Chart.Name | replace "-" "_")).tempest.admin_name | quote }}
   export OS_TENANT_NAME={{ default "neutron-tempest-admin1" (index .Values (print .Chart.Name | replace "-" "_")).tempest.admin_project_name | quote }}
   export OS_PROJECT_NAME={{ default "neutron-tempest-admin1" (index .Values (print .Chart.Name | replace "-" "_")).tempest.admin_project_name | quote }}
